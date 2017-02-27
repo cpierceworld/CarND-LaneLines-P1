@@ -39,6 +39,7 @@ My pipeline consisted of 6 stages:
 
 ![alt text][image7] ![alt text][image8]
 
+##Extrapolate left and right lane lines
 In order to draw a single line on the left and right lanes in stage 6, I do the following steps:
 
 1. Loop over the lines and separate them into left and right lines based on whether the slope of the line is positive or negative, ignore any near-horizontal lines (slopes of magnitude less than .3)

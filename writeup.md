@@ -2,16 +2,31 @@
 
 This project was to create a pipeline to process an image and identify the left and right lane markings.
 
+[image1]: ./examples/grayscale.png "Grayscale"
+[image2]: ./examples/smoothed.png "Smoothed"
+[image3]: ./examples/canny.png "Canny Edges"
+[image4]: ./examples/roi_gray.png "ROI"
+[image5]: ./examples/masked_edges.png "Masked Edges"
+[image6]: ./examples/lines.png "Hough Lines"
+[image7]: ./examples/computed_lines.png "Computed Lines"
+[image8]: ./examples/final.png "Final Image"
+
 ##Pipeline Description
 
 My pipeline consisted of 6 stages:
 
 1. Converts the image to grayscale so as not to be dependent on color.
+![alt text][image1]
 2. Gaussian blur to smoothe the image, kernel size = 5
+![alt text][image2]
 3. Canny edge dectection to generate image of just edges. It is using Otsu's method for calculating threshold which seems to work better for the changing background intensity and lighting conditions of the "optional challange" video.
+![alt text][image3]
 4. Define a trapezoidal region of interest (ROI) in the area we would expect to find lane markings.  Hyperparameters defined as a percentage of the image to adjust to varying resolution input. Remove edges found in step 2 that are outside the ROI.
+![alt text][image4] ![alt text][image5] 
 5. Use Probabilistic Hough Transform to find lines in the image which should represent the edges of the lane markings.
+![alt text][image6]
 6. Using the Hough Lines from stage 5, find just 2 lines representing the left and right lane markings.
+![alt text][image7] ![alt text][image8]
 
 In order to draw a single line on the left and right lanes in stage 6, I do the following steps:
 
